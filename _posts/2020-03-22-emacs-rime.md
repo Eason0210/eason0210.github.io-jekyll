@@ -3,7 +3,7 @@ layout: post
 title: Windows 10 安装emacs-rime
 categories: [Emacs]
 ---
- emacs-rime是RIME输入法的Emacs UI前端，所有行为都通过RIME配置文件来配置。但是Emacs-rime的安装在Windwos系统下比较难安装，最近人更新了Windows下编译emacs-rime的脚本，可以成功在Windows上使用。
+ emacs-rime是RIME输入法的Emacs UI前端，所有行为都通过RIME配置文件来配置。但是Emacs-rime在Windwos系统下比较难安装，最近有人更新了Windows下编译emacs-rime的脚本，可以成功在Windows上使用。
 
 ### 安装RIME输入法
 通过[RIME官网](https://rime.im/)安装，Windows下名字叫小狼豪。
@@ -154,3 +154,4 @@ gcc lib.c -o librime-emacs.dll -O2 -shared -I. -ID:\emacs-28.0.50\include -L. -l
 1. 只是RIME的前端，代码量比较小，有问题还可以提交个补丁；
 2. 中英文混合输入的体验很好，英文输入完成后，按回车或者空格就可以继续输入中文；
 3. UI默认配色不错，看着很现代；
+4. 与Emacs集成，主题直接适配Emacs主题，而且配合翻译功能，体验更好。
