@@ -98,7 +98,7 @@ translator/dictionary: luna_pinyin.sogou
 因为[posframe](https://github.com/tumashu/posframe)可以让后选词显示在光标处，所以建议安装
 
 ### 编译librime
-这步可以偷懒，直接用编译好的liberime。
+这步可以偷懒，直接用编译好的[liberime](https://github.com/merrickluo/liberime/releases/download/v0.0.3/liberime-v0.0.3-windows-x86_64.zip)。
 解压后，只要将下图的几个文件拷贝到emacs安装目录/bin就可以了。
 ![emacs-rime]({{site.url}}/pics/emacs-rime/liberime-win1.png)
 
