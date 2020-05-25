@@ -10,12 +10,11 @@ categories: [Emacs, Slime, SBCL, Quicklisp]
 [Quicklisp](https://www.quicklisp.org/beta/) – Quicklisp 是Common Lisp的安装包依赖管理程序，可以用来代替asdf。可以配合已有的Common Lisp实现一起使用，通过几条简单的命令就可以对超过1200多个库进行下载，安装和加载。
 
 以下对如何在Emacs中集成SLIME, SBCL和Quicklisp进行简要介绍。这是目前比较推荐的用于学习Common Lisp的开发环境。
-
 ### 安装Slime
 可以通过MELPA或者Git安装Slime。参考[Slime的Github主页](https://github.com/slime/slime)。
 
 1. 通过MELPA安装 `M-x package-install RET slime RET`
-2. 在`~/.emacs`或者`~/.init`中添加`inferior-lisp-program` 设置使用的Common Lisp实现：
+2. 在`~/.emacs`或者`~/.eamcs.d/init.el`中添加`inferior-lisp-program` 设置使用的Common Lisp实现：
 ``` emacs-lisp
 (setq inferior-lisp-program "sbcl")
 ```
@@ -27,7 +26,7 @@ categories: [Emacs, Slime, SBCL, Quicklisp]
 cd path/where/you/want/slime/installed
 git clone https://github.com/slime/slime.git
 ```
-2. 在`~/.emacs`或者`~/.init`中添加以下代码
+2. 在`~/.emacs`或者`~/.emacs.d/init.el`中添加以下代码
 ```emacs-lisp
 ;; Setup load-path, autoloads and your lisp system
 ;; Not needed if you install SLIME via MELPA
@@ -68,6 +67,17 @@ To use, add this to your ~/.emacs:
 
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 ;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
+```
+
+我的个人配置：
+```emacs-lisp
+(add-hook 'lisp-mode-hook (lambda ()
+                            (unless (featurep 'slime)
+                              (load (expand-file-name "~/quicklisp/slime-helper.el"))
+                              (require 'slime-autoloads)
+                              (normal-mode))))
+
 (setq inferior-lisp-program "sbcl")
 ```
 ### Enjoy Common Lisp
