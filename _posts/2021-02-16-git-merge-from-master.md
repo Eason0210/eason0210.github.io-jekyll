@@ -5,7 +5,7 @@ categories: [Git, Emacs, GitHub]
 ---
 当从 GitHub fork 一个开源的项目时，项目的 master 分支会不断加入新的代码，如果能够方便地将master 分支的代码合并到自己的项目呢？
 
-下面以 purcell 的 Emacs 配置项目为例，操作步骤如下：
+下面以 [purcell](https://github.com/purcell) 的 [Emacs 配置项目](https://github.com/purcell/emacs.d)为例，操作步骤如下：
 ### 1. Fork 开源项目仓库，并下载克隆的项目进行开发
 ``` bash
 git clone https://github.com/Eason0210/emacs.d.git
