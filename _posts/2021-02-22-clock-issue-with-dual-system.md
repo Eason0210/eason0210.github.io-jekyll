@@ -5,7 +5,7 @@ categories: [Windows, Linux]
 ---
 最近在使用 Windows 10 和 Arch Linux 双系统，但发现从 Linux 系统切换到 Windows 系统的时候，会出现两个系统的时间不一致的情况，一般是相差 8 小时。下面就来分析该问题，并给出解决办法。
 
-## 1. 原因分析
+### 1. 原因分析
 - GMT：Greenwich Mean Time，即格林尼治标准时间，也就是世界时。GMT 以地球自转为基础的时间计量系统，但由于地球自转不均匀，导致 GMT 不精确，现在已经不再作为世界标准时间使用。
 
 - UTC：Universal Time Coordinated，即协调世界时。UTC 是以原子时秒长为基础，在时刻上尽量接近于 GMT的一种时间计量系统。为确保 UTC 与 GMT 相差不会超过 0.9 秒，在有需要的情况下会在 UTC 内加上正或负闰秒。UTC 现在作为世界标准时间使用。
@@ -17,7 +17,7 @@ categories: [Windows, Linux]
 
 Windows 与 Linux 看待硬件时间的方式不同。Windows 把电脑的硬件时钟（RTC）看成是本地时间，即 RTC = Local Time，Windows 会直接显示硬件时间；而 Linux 则是把电脑的硬件时钟看成 UTC 时间，即 RTC = UTC，那么 Linux 显示的时间就是硬件时间加上时区。
 
-## 2. 解决办法
+### 2. 解决办法
 既然知道了问题原因，我们就知道如何去解决，大概思路分为两种，一是让 Windows 认为硬件时钟是 UTC 时间，二是让 Linux 认为硬件时钟是本地时间。
 
 #### 修改 Windows 硬件时钟为 UTC 时间
