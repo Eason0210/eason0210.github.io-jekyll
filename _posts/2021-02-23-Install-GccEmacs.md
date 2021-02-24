@@ -3,9 +3,10 @@ layout: post
 title: GccEmacs 在各个平台上的安装
 categories: [Emacs, GccEmacs, Native-comp]
 ---
-`GccEmacs` 最近已经逐渐成熟，几个月前已经加入了 Emacs 仓库的 `feature/nativecomp` 分支，未来还将合并到 `Master` 分支。但由于 Emacs 的历史包袱太重，维护者对加入新功能是保持比较谨慎的态度，也许是人手不足，对 `GccEmacs` 加入 `Master` 分支推进的很慢，以至于 `Gccemacs` 的维护者都有“[意见](https://lists.gnu.org/archive/html/emacs-devel/2021-02/msg00878.html)”了。
+`GccEmacs` 最近已经逐渐成熟，几个月前已经加入了 Emacs 仓库的 `feature/nativecomp` 分支，未来还将合并到 `Master` 分支。但由于 Emacs 的历史包袱太重，维护者对加入新功能是保持比较谨慎的态度，也许是人手不足，对 `GccEmacs` 加入 `Master` 分支推进的很慢，以至于 `GccEmacs` 的维护者都有“[意见](https://lists.gnu.org/archive/html/emacs-devel/2021-02/msg00878.html)”了。
 
-进入正题，下面针对三大平台分别介绍 `Gccemacs` 的安装：
+进入正题，下面针对三大平台分别介绍 `GccEmacs` 的安装：
+
 ### Apple Mac OS
 这里以 Intel 平台的 Mac OS (Big Sur 11.2) 为例：
 Mac 平台比较推荐直接使用 [Emacs plus](https://github.com/d12frosted/homebrew-emacs-plus), 通过以下命令安装：
@@ -86,7 +87,9 @@ git clone -b feature/native-comp --depth=1  https://git.savannah.gnu.org/git/ema
 5. 启动 Emacs 时会自动编译 eln, 但会出现下面这个错误，不过不影响使用，原因未知。
 ```bash
 Warning: arch-dependent data dir '%emacs_dir%/libexec/emacs/28.0.50/x86_64-w64-mingw32/': No such file or directory
+
 ```
+
 ### 使用体验
 目前在 Mac 和 Linux 上的使用体验是最好的，Windows 也完全可以正常使用了，不过速度的提升不是特别的明显。
 期待 `Gccemacs` 早日加入 `Master` 分支。
