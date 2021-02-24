@@ -79,11 +79,13 @@ git clone -b feature/native-comp --depth=1  https://git.savannah.gnu.org/git/ema
 
 ```
 注意：
-* `make -j$(nproc)` 中的 `$(nproc)` 会自动获取当前系统的 CPU 核心数；你也可以自己手动输入，比如`make -j12` 就是使用 12 核心进行编译。
-* `make NATIVE_FULL_AOT=1` 会强制把所有 el 文件提前编译成 eln, 但编译时间会大幅增加。
-* `make install` 的时候如果不指定 `prefix` 的话是会直接安装到 msys2 目录下，不讲究的话可以这样用。如果需要卸载的话在源码目录里面 `make uninstall`就可以了。个人建议安装到指定目录, 比如我这里是安装到 `D:\Dev_Tools\emacs28-native`, 注意在路径中使用斜杠"/", 而不是反斜杠"\\"。
-* 如果编译过程出错了，记得`make clean`之后重新`configure`再`make` 。
-* 启动 Emacs 时会自动编译 eln, 但会出现下面这个错误，不过不影响使用，原因未知。
+
+1. `make -j$(nproc)` 中的 `$(nproc)` 会自动获取当前系统的 CPU 核心数；你也可以自己手动输入，比如`make -j12` 就是使用 12 核心进行编译。
+2. `make NATIVE_FULL_AOT=1` 会强制把所有 el 文件提前编译成 eln, 但编译时间会大幅增加。
+3. `make install` 的时候如果不指定 `prefix` 的话是会直接安装到 msys2 目录下，不讲究的话可以这样用。如果需要卸载的话在源码目录里面 `make uninstall`就可以了。个人建议安装到指定目录, 比如我这里是安装到 `D:\Dev_Tools\emacs28-native`, 注意在路径中使用斜杠"/", 而不是反斜杠"\\"。
+3. 如果编译过程出错了，记得`make clean`之后重新`configure`再`make` 。
+4. 启动 Emacs 时会自动编译 eln, 但会出现下面这个错误，不过不影响使用，原因未知。  
+
 ```bash
 Warning: arch-dependent data dir '%emacs_dir%/libexec/emacs/28.0.50/x86_64-w64-mingw32/': No such file or directory
 
