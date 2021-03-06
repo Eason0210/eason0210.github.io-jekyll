@@ -121,9 +121,66 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}
 然后在 WSL 终端中执行`emacs &`, 即可打开 GUI 的 Emacs 。
 
 ### 存在的问题
-* 在高分辨率的情况下，显示模糊。
+1. 在高分辨率的情况下，显示模糊。
 可以通过设置 Emacs 的大号字体解决。
-* Emacs 中无法使用 `C-x` 按键。
+2. Emacs 中无法使用 `C-x` 按键。
+是因为安装了 AutoHotkey 模拟 Emacs 按键的缘故。
 
 ### 后记
 Mircosoft 以后将直接支持 Gui Apps, 不需要通过 Xserver 实现， 参考[这个文章](https://devblogs.microsoft.com/commandline/whats-new-in-the-windows-subsystem-for-linux-september-2020/#gui-apps).
+
+#### 安装其他依赖
+以下内容只是针对本人使用的 [Emacs 配置](https://github.com/Eason0210/emacs.d.git)
+##### 安装TTF/OTF字体
+Linux下面安装TTF字体已经在最近几年的版本中变得非常容易，双击打开然后点击安装即可。但是之前我们都是将字体拷贝到字体目录中，然后更新字体缓存实现的。
+现在 WSL 没有安装 GUI 界面，又该如何安装呢，其实沿用之前的好办法即可，将字体文件拷贝到字体目录更新字体缓存即可。
+以下三个目录都是字体目录
+```
+/usr/share/fonts
+/usr/local/share/fonts
+/home/arch/.fonts
+```
+下载、解压并拷贝字体到 .fonts/Noto 目录
+下载 SF Mono 字体到 .fonts 目录
+```bash
+mkdir Downloads
+wget https://noto-website-2.storage.googleapis.com/pkgs/Noto-hinted.zip
+unzip Noto-hinted.zip
+mkdir -p ~/.fonts/Noto
+cp *otf *otc ~/.fonts/Noto
+
+git clone https://github.com/Eason0210/SF_Mono.git ~/.fonts
+
+sudo fc-cache -fv .fonts
+```
+##### 安装 Aspell
+```bash
+sudo pacman -S aspell aspell-en
+```
+##### 安装 Emacs-rime
+安装 [librime](https://github.com/rime/librime)
+```bash
+sudo pacman -S fcitx5-rime librime
+```
+第一次在 Emacs 中启动 rime 的时候会自动编译 [Emacs-rime](https://github.com/DogLooksGood/emacs-rime), 并在 ~/.emacs.d/rime 目录生成相应的配置文件。
+建议先拷贝自己的配置到该目录，再启动 rime 。
+
+#### 安装 ripgrep
+```bash
+sudo pacman -S ripgrep
+```
+#### 安装 yay
+```
+sudo pacman -S yay
+```
+在 WSL2 下 yay 安装软件包的速度非常慢，有待解决。
+
+#### 安装 multimarkdown
+该命令用于 Markdown mode 下 `C-c, C-c p` 在浏览器中预览当前 buffer 。
+```bash
+yay -S multimarkdown
+```
+#### 安装 google chrome
+```bash
+sudo pacman -S google-chrome
+```
