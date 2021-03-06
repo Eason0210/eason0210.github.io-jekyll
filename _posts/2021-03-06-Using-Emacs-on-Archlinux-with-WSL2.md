@@ -129,9 +129,9 @@ export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}
 ### 后记
 Mircosoft 以后将直接支持 Gui Apps, 不需要通过 Xserver 实现， 参考[这个文章](https://devblogs.microsoft.com/commandline/whats-new-in-the-windows-subsystem-for-linux-september-2020/#gui-apps).
 
-#### 安装其他依赖
+### 安装其他依赖
 以下内容只是针对本人使用的 [Emacs 配置](https://github.com/Eason0210/emacs.d.git)
-##### 安装TTF/OTF字体
+#### 安装TTF/OTF字体
 Linux下面安装TTF字体已经在最近几年的版本中变得非常容易，双击打开然后点击安装即可。但是之前我们都是将字体拷贝到字体目录中，然后更新字体缓存实现的。
 现在 WSL 没有安装 GUI 界面，又该如何安装呢，其实沿用之前的好办法即可，将字体文件拷贝到字体目录更新字体缓存即可。
 以下三个目录都是字体目录
@@ -153,11 +153,11 @@ git clone https://github.com/Eason0210/SF_Mono.git ~/.fonts
 
 sudo fc-cache -fv .fonts
 ```
-##### 安装 Aspell
+#### 安装 Aspell
 ```bash
 sudo pacman -S aspell aspell-en
 ```
-##### 安装 Emacs-rime
+#### 安装 Emacs-rime
 安装 [librime](https://github.com/rime/librime)
 ```bash
 sudo pacman -S fcitx5-rime librime
