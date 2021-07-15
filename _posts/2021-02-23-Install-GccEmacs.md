@@ -56,22 +56,22 @@ scoop install msys2
 #### 下载 Emacs 源代码
 github mirror:
 ```bash
-git clone -b feature/native-comp --depth=1 https://github.com/emacs-mirror/emacs.git
+git clone --depth=1 https://github.com/emacs-mirror/emacs.git
 ```
 gitee mirror:
 ```bash
-git clone -b feature/native-comp --depth=1 https://gitee.com/mirrors/emacs.git
+git clone --depth=1 https://gitee.com/mirrors/emacs.git
 ```
 official git repo:
 ```bash
-git clone -b feature/native-comp --depth=1  https://git.savannah.gnu.org/git/emacs.git
+git clone --depth=1  https://git.savannah.gnu.org/git/emacs.git
 ```
 #### 编译 Emacs
 进入源代码目录，然后通过以下命令编译 Emacs 的源码。
 
 ```bash
    ./autogen.sh
-   ./configure --with-nativecomp --without-dbus
+   ./configure --with-native-compilation --without-dbus
    make -j$(nproc)
 
    make install prefix=/d/Dev_Tools/emacs28-native
